@@ -1,0 +1,57 @@
+.calendar-controls {
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+}
+
+.toastui-calendar-day-name__date {
+    margin-right: -5px;
+}
+ 
+.toastui-calendar-day-name__name {
+    /* font-size: .5rem; */
+}
+
+.toastui-calendar-timegrid-time-column .toastui-calendar-timegrid-hour-rows {
+    width: 60% !important;
+}
+
+.toastui-calendar-time {
+    height: 22rem !important;
+}
+
+.toastui-calendar-timegrid .toastui-calendar-columns {
+    left: 42px !important;
+}
+
+.toastui-calendar-day-name-container {
+    margin-left: 33px !important;
+}
+
+.toastui-calendar-allday {
+    display: none !important;
+}
+
+.toastui-calendar-event-time {
+    background-color: rgb(255,193,7) !important;
+    color: white !important;
+}
+
+.toastui-calendar-template-time {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.toastui-calendar-template-time span {
+    margin-top: -1rem !important;
+}
+
+@media (max-width: 760px) {
+    .toastui-calendar-day-name__date {
+        font-size: .8rem;
+    }
+    
+    .toastui-calendar-day-name__name {
+        font-size: .5rem;
+    }
+}

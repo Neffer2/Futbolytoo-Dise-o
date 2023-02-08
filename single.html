@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/15bc5276a1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/styles.css"> 
+    <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+    <link rel="stylesheet" href="css/components/calendar.css">
     <title>Futbolytoo'</title>
 </head>
 <body> 
@@ -44,20 +46,18 @@
         <div class="container single">
             <div class="row">
                 <div class="col-md-7" x-data="tabGallery()" x-init="construct">
+                    <!-- Tab Gallery -->
                     <div class="row gx-3">
                         <div class="col-md-3 previews-column">
                             <div class="previews">
-                                <div class="d-flex justify-content-center" @click="showImageVisor(0)">
+                                <div class="d-flex justify-content-center preview-container" @click="await changeMainImage(0)">
                                     <img class="tab-preview" src="assets/canchas/ball-in-net-scene.jpg" alt="Logo de la marca">
                                 </div>
-                                <div class="d-flex justify-content-center" @click="showImageVisor(1)">
+                                <div class="d-flex justify-content-center preview-container" @click="changeMainImage(1)">
                                     <img class="tab-preview" src="assets/canchas/futbol-5_crop1591131193567.jpg_242310155.jpg" alt="Logo de la marca">
                                 </div>
-                                <div class="d-flex justify-content-center" @click="showImageVisor(2)">
+                                <div class="d-flex justify-content-center preview-container" @click="changeMainImage(2)">
                                     <img class="tab-preview" src="assets/canchas/the-empty-football-field-and-green-grass.jpg" alt="Logo de la marca">
-                                </div>
-                                <div class="d-flex justify-content-center" @click="showImageVisor(3)">
-                                    <img class="tab-preview" src="assets/canchas/ball-in-net-scene.jpg" alt="Logo de la marca">
                                 </div>
                             </div>
                         </div>
@@ -65,52 +65,131 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <img id="image-visor" class="tab-img" src="assets/canchas/futbol-5_crop1591131193567.jpg_242310155.jpg" alt="Logo de la marca">
-                                    <div class="controls">
-                                        <i class="btn btn-control fa-solid fa-angle-left fa-2xl control-left" @click="prevImage"></i>
-                                        <i class="btn btn-control fa-solid fa-angle-right fa-2xl control-right" @click="nextImage"></i>
-                                    </div>
-                                    <div x-show="false" class="spinner-container">
-                                        <div class="spinner-grow tex-secondary" role="status">
+                                    <div class="spinner-container" x-show="spinner" >
+                                        <div class="spinner-border tex-secondary" role="status">
                                             <span class="visually-hidden">Loading...</span>
                                         </div>
-                                        <div class="spinner-grow text-warning" role="status">
-                                            <span class="visually-hidden tex-green">Loading...</span>
-                                        </div>
-                                        <div class="spinner-grow tex-primary" role="status">
-                                            <span class="visually-hidden tex-green">Loading...</span>
-                                        </div>
+                                    </div>
+                                    <div class="controls" x-show="!spinner">
+                                        <i class="btn btn-control fa-solid fa-angle-left fa-2xl control-left" @click="prevImage"></i>
+                                        <i class="btn btn-control fa-solid fa-angle-right fa-2xl control-right" @click="nextImage"></i>
                                     </div>
                                 </div>  
                             </div>
                         </div>
                     </div>
+                    <!-- // -->
+                    
                 </div>
                 <div class="col-md-5">
                     <div class="row">
+                        <!-- Presentacion -->
                         <div class="col-md-12">
-                            <h1 class="tex-secondary bold">JOGO BONITO</h1>
+                            <div class="single-title">
+                                <h1 class="single-name tex-secondary bold mb-1">JOGO BONITO <span class="badge bg-warning">NUEVO</span></h1>
+                                <h4 class="tex-primary bold title-info"><i class="tex-secondary fa-sharp fa-solid fa-location-dot me-1"></i>Restrepo - Bógota D.C.</h4>
+                                <div class="stars-rating">
+                                    <span class="fa fa-star star-checked"></span>
+                                    <span class="fa fa-star star-checked"></span>
+                                    <span class="fa fa-star star-checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            Informacion
-                            <ul>
-                                <li>Informacion</li>
-                                <li>Informacion</li>
-                                <li>Informacion</li>
-                            </ul>
+                        <!-- // -->
+                        <!-- Caracteristicas -->
+                        <div class="col-md-12">
+                            <p class="mt-1">
+                                <div class="row bold"> 
+                                    <div class="col-md-6"><i class="fa-regular fa-circle-check me-1 tex-primary"></i>Baño.</div>
+                                    <div class="col-md-6"><i class="fa-regular fa-circle-check me-1 tex-primary"></i>Comida.</div>
+                                    <div class="col-md-6"><i class="fa-regular fa-circle-check me-1 tex-primary"></i>Posada.</div>
+                                    <div class="col-md-6"><i class="fa-regular fa-circle-check me-1 tex-primary"></i>Parqueadero.</div>
+                                    <div class="col-md-6"><i class="fa-regular fa-circle-check me-1 tex-primary"></i>Venta de bebidas.</div>
+                                    <div class="col-md-6"><i class="fa-regular fa-circle-check me-1 tex-primary"></i>Bar.</div>
+                                    <div class="col-md-6"><i class="fa-regular fa-circle-check me-1 tex-primary"></i>Parqueadero.</div>
+                                    <div class="col-md-6"><i class="fa-regular fa-circle-check me-1 tex-primary"></i>Venta de bebidas.</div>
+                                    <div class="col-md-6"><i class="fa-regular fa-circle-check me-1 tex-primary"></i>Bar.</div>
+                                </div>
+                            </p>
+                        </div> 
+                        <!-- Desc -->
+                        <div class="col-md-12">
+                            <h4 class="bold">Descripci&oacute;n:</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio provident odio sunt obcaecati, velit beatae eaque voluptatum quaerat cum quidem dolore veritatis eum repellendus sed temporibus praesentium! Distinctio, assumenda in.</p>
                         </div>
-                        <div class="col-md-6">
-                            Informacion
-                            <ul>
-                                <li>Informacion</li>
-                                <li>Informacion</li>
-                                <li>Informacion</li>
-                            </ul>
+                        <!-- Iconos -->
+                        <!-- <div class="row gx-3">
+                            <div class="col-md-12">
+                                <div class="cancha-icons">
+                                    <div class="col-sm-4 d-flex flex-column justify-content-start align-items-center tex-gray">
+                                        <img class="mb-1" src="assets/icons/cancha-de-futbol_green.png" alt="" height="50">
+                                        <h6>7 Canchas</h6>
+                                    </div>
+                                    <div class="col-sm-4 d-flex flex-column justify-content-start align-items-center tex-gray">
+                                        <img class="mb-1" src="assets/icons/parking_green.png" alt="" height="50">
+                                        <h6>Parqueadero</h6>
+                                    </div>
+                                    <div class="col-sm-4 d-flex flex-column justify-content-start align-items-center tex-gray">
+                                        <img class="mb-1" src="assets/icons/beer_green.png" alt="" height="50">
+                                        <h6>Venta de bebidas</h6>
+                                    </div>
+                                    <div class="col-sm-2 d-flex justify-content-center">
+                                        <img src="assets/icons/freezer_green.png" alt="" height="50">
+                                    </div>
+                                    <div class="col-sm-2 d-flex justify-content-center">
+                                        <img src="assets/icons/roof_green.png" alt="" height="50">
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div> 
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div id="calendar-section" class="col-md-6">
+                            <h4 class="bold">Disponibilidad:</h4>
+                            <h6><i class="fa-solid fa-calendar-days me-1 tex-secondary"></i><span id="dateContainer" class="bold tex-primary">~~</span></h6>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="calendar" class="bold" style="height: 400px;"></div>                    
+                                </div> 
+                                <div class="col-md-4 mt-1 mb-3 calendar-controls">
+                                    <button class="btn btn-secondary py-2" onclick="today()">HOY</button>
+                                    <i class="btn btn-control fa-solid fa-angle-left fa-2xl control-left" onclick="prev_range()"></i>
+                                    <i class="btn btn-control fa-solid fa-angle-right fa-2xl control-right" onclick="next_range()"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <h4 class="bold">Reservar:</h4>
+                            <form action="">
+                                <div class="row gy-3">
+                                    <div class="col-md-12">
+                                        <label for="" class="bold">Fecha</label>
+                                        <input id="form-date" type="date" class="form-control" onchange="toDate()">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="" class="bold">Hora inicio</label>
+                                        <input type="time" class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="" class="bold">Hora fin</label>
+                                        <input type="time" class="form-control">
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+
+
+
     <footer class="container-footer">
         <div class="container px-5 py-5">
             <div class="row">
@@ -170,6 +249,8 @@
     </footer>
     <script src="https://kit.fontawesome.com/15bc5276a1.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.ie11.min.js"></script>
     <script src="js/components/tab-gallery.js"></script>
+    <script src="js/components/calendar.js"></script>
 </body>
 </html>
