@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/styles.css"> 
     <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
     <link rel="stylesheet" href="css/components/calendar.css">
+    <link rel="stylesheet" href="js/components/jquery-timepicker/jquery.timepicker.css">
     <title>Futbolytoo'</title>
 </head>
 <body> 
@@ -119,36 +120,11 @@
                             <h4 class="bold">Descripci&oacute;n:</h4>
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio provident odio sunt obcaecati, velit beatae eaque voluptatum quaerat cum quidem dolore veritatis eum repellendus sed temporibus praesentium! Distinctio, assumenda in.</p>
                         </div>
-                        <!-- Iconos -->
-                        <!-- <div class="row gx-3">
-                            <div class="col-md-12">
-                                <div class="cancha-icons">
-                                    <div class="col-sm-4 d-flex flex-column justify-content-start align-items-center tex-gray">
-                                        <img class="mb-1" src="assets/icons/cancha-de-futbol_green.png" alt="" height="50">
-                                        <h6>7 Canchas</h6>
-                                    </div>
-                                    <div class="col-sm-4 d-flex flex-column justify-content-start align-items-center tex-gray">
-                                        <img class="mb-1" src="assets/icons/parking_green.png" alt="" height="50">
-                                        <h6>Parqueadero</h6>
-                                    </div>
-                                    <div class="col-sm-4 d-flex flex-column justify-content-start align-items-center tex-gray">
-                                        <img class="mb-1" src="assets/icons/beer_green.png" alt="" height="50">
-                                        <h6>Venta de bebidas</h6>
-                                    </div>
-                                    <div class="col-sm-2 d-flex justify-content-center">
-                                        <img src="assets/icons/freezer_green.png" alt="" height="50">
-                                    </div>
-                                    <div class="col-sm-2 d-flex justify-content-center">
-                                        <img src="assets/icons/roof_green.png" alt="" height="50">
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                     </div> 
                 </div>
                 <div class="col-md-12">
-                    <div class="row">
-                        <div id="calendar-section" class="col-md-6">
+                    <div class="row"> 
+                        <div id="calendar-section" class="col-md-7">
                             <h4 class="bold">Disponibilidad:</h4>
                             <h6><i class="fa-solid fa-calendar-days me-1 tex-secondary"></i><span id="dateContainer" class="bold tex-primary">~~</span></h6>
                             <div class="row">
@@ -163,23 +139,60 @@
                             </div>
                         </div>
                         <div class="col-md-5">
-                            <h4 class="bold">Reservar:</h4>
+                            <h4 class="bold">Haz tu reserva:</h4>
                             <form action="">
                                 <div class="row gy-3">
                                     <div class="col-md-12">
                                         <label for="" class="bold">Fecha</label>
-                                        <input id="form-date" type="date" class="form-control" onchange="toDate()">
+                                        <div class="input-group flex-nowrap">
+                                            <input id="form-date" type="date" class="form-control" onchange="toDate()">
+                                            <span class="input-group-text" id="addon-wrapping">
+                                                <i class="fa-solid fa-calendar-days"></i>
+                                            </span>
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="" class="bold">Hora inicio</label>
-                                        <input type="time" class="form-control">
+                                        <div class="input-group flex-nowrap">
+                                            <input type="text" placeholder="3:00" class="form-control time-input">
+                                            <span class="input-group-text" id="addon-wrapping">
+                                                <i class="fa-regular fa-clock"></i>
+                                            </span>
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="" class="bold">Hora fin</label>
-                                        <input type="time" class="form-control">
+                                        <div class="input-group flex-nowrap">
+                                            <input id="timepicker" placeholder="3:00" type="text" class="form-control time-input" aria-label="Username" aria-describedby="addon-wrapping">
+                                            <span class="input-group-text" id="addon-wrapping">
+                                                <i class="fa-regular fa-clock"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button class="btn btn-primary py-2">RESERVAR</button>
                                     </div>
                                 </div>
                             </form>
+                            <div class="my-4">
+                                <h4 class="bold">Contacto:</h4>
+                                <div class="row"> 
+                                    <div class="col-md-12 mb-1">
+                                        <i class="fa-solid fa-location-dot me-1 tex-primary"></i>
+                                        <span class="bold">Direcci&oacute;n: </span><span class="light">Av Cr 58 No. 127-59 CC Bulevar Niza (Terraza).</span>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <i class="fa-solid fa-phone me-1 tex-primary"></i>
+                                        <span class="bold">Contacto: </span><span class="light">3154629501 | 3185481264.</span>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="col-md-12">
+                            <h4 class="bold">¿C&oacute;mo llegar?</h4>
+                            <div class="map-container">
+                                <iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=es&amp;q=Les%20Rambles,%201%20Barcelona,%20Spain+(Mi%20nombre%20de%20egocios)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/car-satnav-gps/">Car Navigation Systems</a></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -252,5 +265,10 @@
     <script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.ie11.min.js"></script>
     <script src="js/components/tab-gallery.js"></script>
     <script src="js/components/calendar.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="js/components/jquery-timepicker/jquery.timepicker.min.js"></script>
+    <script>
+        $('.time-input').timepicker(options);
+    </script>
 </body>
 </html>
