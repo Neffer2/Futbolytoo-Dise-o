@@ -1,0 +1,45 @@
+#awn-popup-wrapper .awn-popup-body {
+    font-family: 'Poppins-Light', 'Arial Narrow', Arial, sans-serif;
+    background: #fff;
+    border-radius: 32px;
+    font-size: 14px;
+    max-width: 822px;
+    min-width: 494px;
+    padding: 3rem;
+    position: relative;
+    word-break: break-word;
+} 
+
+#awn-popup-wrapper .awn-buttons .awn-btn-cancel {
+    font-family: Poppins-Bold;
+    border-radius: 8px;
+    background: linear-gradient(13deg, rgb(119 28 28) 51%, rgb(255 0 0) 100%);
+    padding: 0.3rem 1.5rem;
+    border: none;
+}
+
+#awn-popup-wrapper .awn-buttons .awn-btn-cancel:hover {
+    background: linear-gradient(13deg, rgb(119 28 28) 35%, rgb(255 0 0) 100%);
+}
+
+#awn-popup-wrapper .awn-buttons .awn-btn-success {
+    font-family: Poppins-Bold;
+    border-radius: 8px;
+    background: linear-gradient(13deg, rgba(46,140,20,1) 51%, rgba(255, 196, 0, 0.729) 100%);
+    padding: 0.3rem 1.5rem;
+    border: none;
+}
+
+#awn-popup-wrapper .awn-buttons .awn-btn-success:hover {
+    background: linear-gradient(13deg, rgba(46,140,20,1) 35%, rgba(255, 196, 0, 0.729) 100%);
+}
+
+#awn-popup-wrapper .awn-popup-title {
+    font-family: Poppins-Bold;
+    color: rgb(222,62,4);
+    font-size: large;
+}
+
+.awn-popup-content {
+    color: rgb(78, 78, 78);
+}

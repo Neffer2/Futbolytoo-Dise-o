@@ -8,6 +8,7 @@
     <script src="https://kit.fontawesome.com/15bc5276a1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/styles.css"> 
     <link rel="stylesheet" href="css/components/alerts.css">
+    <link rel="stylesheet" href="css/components/customAlerts.css">
     <script src="js/components/index.var.js"></script>
     <title>Futbolytoo'</title>
 </head> 
@@ -260,7 +261,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> 
         </div>
     </footer>
     <script>
@@ -268,13 +269,13 @@
         let onOk = () => {notifier.info('You pressed OK')};
         let onCancel = () => {notifier.info('You pressed Cancel')};
         notifier.confirm(
-            'Are you sure?',
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum quis laboriosam maiores culpa.',
             onOk,
             onCancel,
             {
-            labels: {
-                confirm: 'Dangerous action'
-            }
+                labels: {
+                    confirm: 'Felicitaciones por registrar a tu equipp'
+                }
             }
         )
     </script>
