@@ -33,6 +33,15 @@ body {
     background-size: cover;
 }
 
+.separator {
+    padding: 0 2rem;
+}
+
+.carousel-inner {
+    border-top-right-radius: .7rem;
+    border-top-left-radius: .7rem;
+}
+
 .bg-primary {
     --bs-bg-opacity: 1;
     background-color: #2E8C14 !important;
@@ -212,17 +221,43 @@ body {
 }
 
 .card {
-    border-radius: 1.5rem;
+    border: solid 2px rgba(0, 0, 0, 0.293);
+    border-radius: .8rem;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.card-header {
+    padding: 0;
 }
 
 .card-body {
     padding: .5rem !important;
 }
 
-.card-img-top {
-    border-top-left-radius: 1.5rem;
-    border-top-right-radius: 1.5rem;
+.badge-cards {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute;
+    top: 20px;
+    row-gap: .5rem;
+    font-size: 1.3rem;
+    z-index: 1;
+}
+
+.badge-cards span {
+    border-top-left-radius: .1rem;
+    border-bottom-left-radius: .1rem;
+    /*  */
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: .3rem;
+}
+
+.card-header-img {
+    border-top-left-radius: .7rem;
+    border-top-right-radius: .7rem;
     height: 15rem;
 }
 
@@ -235,11 +270,16 @@ body {
     color: #2E8C14;
 }
 
-.cancha-icons {
+/* .cancha-icons {
     display: flex;
     flex-wrap: wrap;
-    row-gap: 1rem;
+    justify-content: space-around;
+    row-gap: .3rem;
 }
+
+.cancha-icons img {
+    height: 3rem;
+} */
 
 .card-button {
     position: relative;
